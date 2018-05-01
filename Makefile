@@ -6,7 +6,7 @@
 #    By: jkimmina <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/19 19:11:37 by jkimmina          #+#    #+#              #
-#    Updated: 2018/04/30 20:28:27 by jkimmina         ###   ########.fr        #
+#    Updated: 2018/04/30 20:39:48 by jkimmina         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -108,14 +108,14 @@ CFLAGS = -c -Wall -Werror -Wextra
 all: $(NAME)
 
 $(NAME):
-	@gcc $(CFLAGS) $(HEADERFLG) $(addprefix src/, $(SRC)) $(addprefix libft/, $(LIBFTSRC))
-	@ar rc $(NAME) $(OBJ)
-	@ranlib $(NAME)
+	gcc $(CFLAGS) $(HEADERFLG) $(addprefix src/, $(SRC)) $(addprefix libft/, $(LIBFTSRC))
+	ar rc $(NAME) $(OBJ)
+	ranlib $(NAME)
 
 clean:
-	@/bin/rm -f $(OBJ) inc/*.gch*
+	/bin/rm -f $(OBJ) inc/*.gch*
 
 fclean: clean
-	@/bin/rm -f $(NAME)
+	/bin/rm -f $(NAME)
 
 re: fclean all
