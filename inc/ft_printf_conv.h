@@ -6,7 +6,7 @@
 /*   By: jkimmina <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/23 16:32:35 by jkimmina          #+#    #+#             */
-/*   Updated: 2018/04/28 22:27:13 by jkimmina         ###   ########.fr       */
+/*   Updated: 2018/04/30 19:31:25 by jkimmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # include <libft.h>
 # include "ft_printf_struct.h"
 
+char	*conv_char(va_list *ap, t_flags *flags);
+char	*conv_signed(va_list *ap, t_flags *flags);
+char	*conv_unsigned(va_list *ap, t_flags *flags);
 char	*convert(va_list *ap, t_flags *flags);
 
 #endif
