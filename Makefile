@@ -6,13 +6,13 @@
 #    By: jkimmina <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/19 19:11:37 by jkimmina          #+#    #+#              #
-#    Updated: 2018/04/30 19:31:45 by jkimmina         ###   ########.fr        #
+#    Updated: 2018/04/30 20:15:24 by jkimmina         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-HEADERDIR = inc/ libft/
+HEADERFLG = -Iinc/ -Ilibft/
 
 HDR = 		libft.h				\
 			ft_printf.h			\
@@ -108,12 +108,12 @@ CFLAGS = -c -Wall -Werror -Wextra
 all: $(NAME) test
 
 $(NAME):
-	@gcc $(CFLAGS) -Iinc/ -Ilibft/ $(addprefix $(HEADERDIR),$(HEADER)) $(addprefix src/,$(SRC)) $(addprefix libft/, $(LIBFTSRC))
+	@gcc $(CFLAGS) $(HEADERFLG) $(addprefix src/, $(SRC)) $(addprefix libft/, $(LIBFTSRC))
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
 
 test: $(NAME)
-	@gcc main.c -Iinc/ -Ilibft/ -L. -lftprintf -o test
+	@gcc main.c $(HEADERFLG) -L. -lftprintf -o test
 
 clean:
 	@/bin/rm -f $(OBJ) inc/*.gch*
@@ -121,4 +121,4 @@ clean:
 fclean: clean
 	@/bin/rm -f $(NAME) test
 
-re: fclean all test
+re: fclean all
