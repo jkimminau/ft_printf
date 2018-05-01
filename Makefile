@@ -6,7 +6,7 @@
 #    By: jkimmina <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/19 19:11:37 by jkimmina          #+#    #+#              #
-#    Updated: 2018/04/30 20:24:36 by jkimmina         ###   ########.fr        #
+#    Updated: 2018/04/30 20:28:27 by jkimmina         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -105,15 +105,12 @@ OBJ =	$(SRC:.c=.o) $(LIBFTSRC:.c=.o)
 
 CFLAGS = -c -Wall -Werror -Wextra
 
-all: $(NAME) #test
+all: $(NAME)
 
 $(NAME):
 	@gcc $(CFLAGS) $(HEADERFLG) $(addprefix src/, $(SRC)) $(addprefix libft/, $(LIBFTSRC))
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
-
-#test: $(NAME)
-	#@gcc main.c $(HEADERFLG) -L. -lftprintf -o test
 
 clean:
 	@/bin/rm -f $(OBJ) inc/*.gch*
