@@ -6,7 +6,7 @@
 /*   By: jkimmina <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/23 16:18:20 by jkimmina          #+#    #+#             */
-/*   Updated: 2018/04/30 17:42:35 by jkimmina         ###   ########.fr       */
+/*   Updated: 2018/04/30 19:10:35 by jkimmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,24 @@
 char	*conv_char(va_list *ap, t_flags *flags)
 {
 	char	*ret;
+	wchar_t	c;
 
+	(void)flags;
 	ret = ft_strnew(2);
+	c = va_arg(*ap, wchar_t);
 	if (*flags->key == 'C' || ft_strcmp(flags->flagstr, "l") == 0)
-		ret[0] = va_arg(*ap, wchar_t);
+	{
+			ret[0] = c / 256;
+			ret[1] = c % 256;
+	}
 	else
+	{
 		ret[0] = va_arg(*ap, int);
-	ret[1] = '\0';
+		ret[1] = '\0';
+	}
 	if (ret[0] < 32 || ret[0] > 126)
+		flags->strlen++;
+	if (ret[1] < 32 || ret[1] > 126)
 		flags->strlen++;
 	return (ret);
 }
