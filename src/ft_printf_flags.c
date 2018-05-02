@@ -6,7 +6,7 @@
 /*   By: jkimmina <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/23 14:48:27 by jkimmina          #+#    #+#             */
-/*   Updated: 2018/05/01 16:57:02 by jkimmina         ###   ########.fr       */
+/*   Updated: 2018/05/01 18:28:15 by jkimmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ char	*alt_flag(char *conv, t_flags *flags)
 
 	if (flags->alt == 0 && *flags->key != 'p')
 		return (conv);
-	else if (ft_strcmp(conv, "") == 0 || (ft_strcmp(conv, "0") == 0 && *flags->key != 'p'))
+	else if (ft_strcmp(conv, "") == 0 ||
+			(ft_strcmp(conv, "0") == 0 && *flags->key != 'p'))
 		return (conv);
-	else if (ft_strchr("oO",*(flags->key)))
+	else if (ft_strchr("oO", *(flags->key)))
 		res = ft_strjoin("0", conv);
 	else if (ft_strchr("xp", *flags->key))
 		res = ft_strjoin("0x", conv);

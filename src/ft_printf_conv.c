@@ -6,7 +6,7 @@
 /*   By: jkimmina <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/23 16:18:20 by jkimmina          #+#    #+#             */
-/*   Updated: 2018/05/01 18:18:51 by jkimmina         ###   ########.fr       */
+/*   Updated: 2018/05/01 18:25:38 by jkimmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int		convert(va_list *ap, t_flags *flags)
 {
 	char	c;
-	//char	*r;
 
 	c = *flags->key;
 	if (c == '%')

@@ -6,7 +6,7 @@
 /*   By: jkimmina <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/01 18:01:49 by jkimmina          #+#    #+#             */
-/*   Updated: 2018/05/01 18:13:35 by jkimmina         ###   ########.fr       */
+/*   Updated: 2018/05/01 18:23:05 by jkimmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ uintmax_t	conv_unsigned(va_list *ap, t_flags *flags)
 		num = ((unsigned char)va_arg(*ap, int));
 	else if (ft_strcmp(flags->flagstr, "h") == 0)
 		num = ((unsigned short)va_arg(*ap, int));
-	else if (ft_strcmp(flags->flagstr, "l") == 0)// || ft_strchr("Up", *flags->key))
+	else if (ft_strcmp(flags->flagstr, "l") == 0)
 		num = va_arg(*ap, unsigned long);
 	else if (ft_strcmp(flags->flagstr, "ll") == 0)
 		num = va_arg(*ap, unsigned long long);
