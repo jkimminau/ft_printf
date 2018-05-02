@@ -1,36 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_struct.h                                 :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkimmina <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/24 13:05:20 by jkimmina          #+#    #+#             */
-/*   Updated: 2018/05/01 16:04:45 by jkimmina         ###   ########.fr       */
+/*   Created: 2018/04/18 17:12:39 by jkimmina          #+#    #+#             */
+/*   Updated: 2018/05/01 16:14:23 by jkimmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_STRUCT_H
-# define FT_PRINTF_STRUCT_H
+#include <stdio.h>
+#include <wchar.h>
+#include <stdlib.h>
+#include <ft_printf.h>
+#include <limits.h>
 
-# include <stdlib.h>
-# include <libft.h>
-
-typedef struct	s_flags
+int		main(void)
 {
-	int			alt;
-	int			zero;
-	int			minus;
-	int			plus;
-	int			space;
-	int			prec;
-	int			width;
-	int			strlen;
-	char		*key;
-	char		*flagstr;
-}				t_flags;
-
-t_flags			*free_flags(t_flags *flags);
-t_flags			*new_flags(void);
-
-#endif
+	ft_printf("'%05%'\n");
+	printf("'%05%'\n");
+	return (0);
+}

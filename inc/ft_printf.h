@@ -6,7 +6,7 @@
 /*   By: jkimmina <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/18 16:56:21 by jkimmina          #+#    #+#             */
-/*   Updated: 2018/04/30 20:13:28 by jkimmina         ###   ########.fr       */
+/*   Updated: 2018/05/01 15:58:01 by jkimmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <stdarg.h>
 # include <libft.h>
 # include "ft_printf_struct.h"
-# include "ft_printf_flags.h"
 # include "ft_printf_conv.h"
 
 int		ft_printf(char *str, ...);

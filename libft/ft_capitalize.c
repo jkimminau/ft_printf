@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_capitalize.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkimmina <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/18 17:12:39 by jkimmina          #+#    #+#             */
-/*   Updated: 2018/04/30 19:57:29 by jkimmina         ###   ########.fr       */
+/*   Created: 2018/05/01 17:24:28 by jkimmina          #+#    #+#             */
+/*   Updated: 2018/05/01 17:27:39 by jkimmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <ft_printf.h>
-#include <limits.h>
+#include <libft.h>
 
-int		main(void)
+char	*ft_capitalize(char *str)
 {
-	return (0);
+	int		i;
+
+	i = 0;
+	while (str[i])
+	{
+		str[i] = ft_toupper(str[i]);
+		i++;
+	}
+	return (str);
 }

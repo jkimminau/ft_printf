@@ -6,68 +6,100 @@
 /*   By: jkimmina <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/30 19:29:05 by jkimmina          #+#    #+#             */
-/*   Updated: 2018/04/30 19:31:59 by jkimmina         ###   ########.fr       */
+/*   Updated: 2018/05/01 18:13:48 by jkimmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_printf_conv.h>
+#include <ft_printf_flags.h>
 
-char	*conv_base(uintmax_t num, t_flags *flags, int base)
+int			conv_octal(char k, va_list *ap, t_flags *flags)
 {
-	char	*res;
-	int		i;
-
-	i = -1;
-	res = ft_uitoa_base(num, base);
-	if (*flags->key >= 'A' && *flags->key <= 'Z')
-		while (res[++i] != '\0')
-			res[i] = ft_toupper(res[i]);
-	return (res);
-}
-
-char	*conv_signed(va_list *ap, t_flags *flags)
-{
-	if (ft_strcmp(flags->flagstr, "") == 0 && *flags->key == 'D')
-		return (ft_sitoa(va_arg(*ap, long)));
-	if (ft_strcmp(flags->flagstr, "hh") == 0)
-		return (ft_sitoa((signed char)va_arg(*ap, int)));
-	if (ft_strcmp(flags->flagstr, "h") == 0)
-		return (ft_sitoa((short)va_arg(*ap, int)));
-	if (ft_strcmp(flags->flagstr, "l") == 0)
-		return (ft_sitoa(va_arg(*ap, long)));
-	if (ft_strcmp(flags->flagstr, "ll") == 0)
-		return (ft_sitoa(va_arg(*ap, long long)));
-	if (ft_strcmp(flags->flagstr, "j") == 0)
-		return (ft_sitoa(va_arg(*ap, intmax_t)));
-	if (ft_strcmp(flags->flagstr, "z") == 0)
-		return (ft_sitoa(va_arg(*ap, size_t)));
-	return (ft_itoa(va_arg(*ap, int)));
-}
-
-char	*conv_unsigned(va_list *ap, t_flags *flags)
-{
+	char		*res;
+	int			len;
 	uintmax_t	num;
 
-	if (ft_strcmp(flags->flagstr, "l") == 0 || ft_strchr("Up", *flags->key))
+	if (k == 'O')
 		num = va_arg(*ap, unsigned long);
-	else if (ft_strcmp(flags->flagstr, "hh") == 0)
-		num = ((unsigned char)va_arg(*ap, int));
-	else if (ft_strcmp(flags->flagstr, "h") == 0)
-		num = ((unsigned short)va_arg(*ap, int));
-	else if (ft_strcmp(flags->flagstr, "ll") == 0)
-		num = va_arg(*ap, unsigned long long);
-	else if (ft_strcmp(flags->flagstr, "j") == 0)
-		num = va_arg(*ap, uintmax_t);
-	else if (ft_strcmp(flags->flagstr, "z") == 0)
-		num = va_arg(*ap, size_t);
 	else
-		num = va_arg(*ap, unsigned int);
-	if (ft_strchr("uU", *flags->key))
-		return (ft_uitoa(num));
-	else if (ft_strchr("xXp", *flags->key))
-		return (conv_base(num, flags, 16));
-	else if (ft_strchr("oO", *flags->key))
-		return (conv_base(num, flags, 8));
-	return (0);
+		num = conv_unsigned(ap, flags);
+	res = ft_uitoa_base(num, 8);
+	if (flags->prec > -1)
+		res = prec_flag(res, flags);
+	if (flags->alt && num > 0)
+		res = ft_strjoin("0", res);
+	if (flags->width > 0)
+		res = num_flag(res, flags);
+	len = ft_strlen(res);
+	write(1, res, len);
+	free(res);
+	return (len);
 }
 
+int			conv_int(char k, va_list *ap, t_flags *flags)
+{
+	char		*res;
+	int			len;
+	intmax_t	num;
+
+	if (k == 'D')
+		num = va_arg(*ap, long);
+	else
+		num = conv_signed(ap, flags);
+	res = ft_sitoa(num);
+	if (flags->prec > -1)
+		res = prec_flag(res, flags);
+	if (flags->plus)
+		res = plus_flag(res, flags);
+	if (flags->space)
+		res = space_flag(res, flags);
+	if (flags->width > 0)
+		res = num_flag(res, flags);
+	len = ft_strlen(res);
+	write(1, res, len);
+	free(res);
+	return (len);
+}
+
+int			conv_uint(char k, va_list *ap, t_flags *flags)
+{
+	char		*res;
+	int			len;
+	intmax_t	num;
+
+	if (k == 'U')
+		num = va_arg(*ap, unsigned long);
+	else
+		num = conv_unsigned(ap, flags);
+	res = ft_uitoa(num);
+	if (flags->prec > -1)
+		res = prec_flag(res, flags);
+	if (flags->width > 0)
+		res = num_flag(res, flags);
+	len = ft_strlen(res);
+	write(1, res, len);
+	free(res);
+	return (len);
+}
+
+int			conv_hex(char k, va_list *ap, t_flags *flags)
+{
+	char		*res;
+	int			len;
+	uintmax_t	num;
+
+	num = conv_unsigned(ap, flags);
+	res = ft_uitoa_base(num, 16);
+	if (flags->prec > -1)
+		res = prec_flag(res, flags);
+	if (flags->alt && num > 0)
+		res = ft_strjoin("0x", res);
+	if (k == 'X')
+		res = ft_capitalize(res);
+	if (flags->width > 0)
+		res = num_flag(res, flags);
+	len = ft_strlen(res);
+	write(1, res, len);
+	free(res);
+	return (len);
+}

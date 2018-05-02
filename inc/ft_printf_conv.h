@@ -6,7 +6,7 @@
 /*   By: jkimmina <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/23 16:32:35 by jkimmina          #+#    #+#             */
-/*   Updated: 2018/04/30 20:13:32 by jkimmina         ###   ########.fr       */
+/*   Updated: 2018/05/01 18:17:30 by jkimmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,19 @@
 
 # include <stdarg.h>
 # include <libft.h>
+# include <ft_printf_flags.h>
 # include "ft_printf_struct.h"
 
-char	*conv_char(va_list *ap, t_flags *flags);
-char	*conv_signed(va_list *ap, t_flags *flags);
-char	*conv_unsigned(va_list *ap, t_flags *flags);
-char	*convert(va_list *ap, t_flags *flags);
+intmax_t	conv_signed(va_list *ap, t_flags *flags);
+uintmax_t	conv_unsigned(va_list *ap, t_flags *flags);
+int			conv_perc(t_flags *flags);
+int			conv_ptr(va_list *ap, t_flags *flags);
+int			conv_octal(char k, va_list *ap, t_flags *flags);
+int			conv_int(char k, va_list *ap, t_flags *flags);
+int			conv_uint(char k, va_list *ap, t_flags *flags);
+int			conv_hex(char k, va_list *ap, t_flags *flags);
+int			conv_str(va_list *ap, t_flags *flags);
+int			conv_char(va_list *ap, t_flags *flags);
+int			convert(va_list *ap, t_flags *flags);
 
 #endif

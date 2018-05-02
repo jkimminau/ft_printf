@@ -6,7 +6,7 @@
 /*   By: jkimmina <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/18 16:48:25 by jkimmina          #+#    #+#             */
-/*   Updated: 2018/04/30 18:30:34 by jkimmina         ###   ########.fr       */
+/*   Updated: 2018/05/01 17:52:04 by jkimmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,27 +66,22 @@ t_flags	*read_flags(char **str)
 int		handle_conversion(char **str, va_list *ap)
 {
 	t_flags	*flags;
-	char	*conv;
 	int		ret;
 
 	(*str)++;
 	if (*str == 0 || (flags = read_flags(str)) == 0)
 		return (0);
-	if ((conv = convert(ap, flags)) == 0)
-	{
-		free_flags(flags);
-		return (0);
-	}
-	conv = (flags->prec > -1) ? prec_flag(conv, flags) : conv;
+	ret = convert(ap, flags);
+	//make CONVERT print string and return int value
+	/*conv = (flags->prec > -1) ? prec_flag(conv, flags) : conv;
 	conv = alt_flag(conv, flags);
 	conv = (flags->plus == 1) ? plus_flag(conv, flags) : conv;
 	conv = (flags->space == 1) ? space_flag(conv, flags) : conv;
 	conv = (flags->width != 0) ? num_flag(conv, flags) : conv;
 	flags->strlen += ft_strlen(conv);
 	ret = flags->strlen;
-	write(1, conv, flags->strlen);
+	write(1, conv, flags->strlen);*/
 	(*str)++;
-	free(conv);
 	free_flags(flags);
 	return (ret);
 }

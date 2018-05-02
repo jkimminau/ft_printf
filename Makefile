@@ -6,7 +6,7 @@
 #    By: jkimmina <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/19 19:11:37 by jkimmina          #+#    #+#              #
-#    Updated: 2018/04/30 20:39:48 by jkimmina         ###   ########.fr        #
+#    Updated: 2018/05/01 18:11:35 by jkimmina         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,12 +92,15 @@ LIBFTSRC =	ft_atoi.c			\
 			get_next_line.c		\
 			ft_strtointarr.c	\
 			ft_wordcount.c		\
-			ft_putintarr.c		
+			ft_putintarr.c		\
+			ft_capitalize.c
 
 SRC = 		ft_printf.c			\
 			ft_printf_flags.c	\
 			ft_printf_conv.c	\
+			conv_special.c		\
 			conv_char.c			\
+			grab_num.c			\
 			conv_num.c			\
 			ft_printf_struct.c		
 
@@ -105,17 +108,20 @@ OBJ =	$(SRC:.c=.o) $(LIBFTSRC:.c=.o)
 
 CFLAGS = -c -Wall -Werror -Wextra
 
-all: $(NAME)
+all: $(NAME) test
 
 $(NAME):
-	gcc $(CFLAGS) $(HEADERFLG) $(addprefix src/, $(SRC)) $(addprefix libft/, $(LIBFTSRC))
-	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
+	@gcc $(CFLAGS) $(HEADERFLG) $(addprefix src/, $(SRC)) $(addprefix libft/, $(LIBFTSRC))
+	@ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
+
+test:
+	gcc -Wall -Werror -Wextra $(HEADERFLG) main.c -L. -lftprintf -o test
 
 clean:
-	/bin/rm -f $(OBJ) inc/*.gch*
+	@/bin/rm -f $(OBJ) inc/*.gch*
 
 fclean: clean
-	/bin/rm -f $(NAME)
+	@/bin/rm -f $(NAME) test
 
 re: fclean all
