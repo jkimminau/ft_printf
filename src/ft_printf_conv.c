@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <ft_printf_conv.h>
+#include <stdio.h>
 
 int		convert(va_list *ap, t_flags *flags)
 {

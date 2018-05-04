@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_wstrlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkimmina <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/18 17:12:39 by jkimmina          #+#    #+#             */
-/*   Updated: 2018/05/01 16:14:23 by jkimmina         ###   ########.fr       */
+/*   Created: 2018/02/19 21:36:36 by jkimmina          #+#    #+#             */
+/*   Updated: 2018/02/28 13:43:07 by jkimmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <wchar.h>
-#include <stdlib.h>
-#include <ft_printf.h>
-#include <limits.h>
+#include <libft.h>
 
-int		main(void)
+size_t	ft_wstrlen(const wchar_t *s)
 {
-	//printf("%d\n", printf("%10R\n"));
-	printf("%d\n", ft_printf("%10R\n"));
-	return (0);
+	size_t i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }

@@ -57,6 +57,7 @@ LIBFTSRC =	ft_atoi.c			\
 			ft_strclr.c			\
 			ft_strcmp.c			\
 			ft_strcpy.c			\
+			ft_wstrcpy.c			\
 			ft_strdel.c			\
 			ft_strdup.c			\
 			ft_strequ.c			\
@@ -65,6 +66,7 @@ LIBFTSRC =	ft_atoi.c			\
 			ft_strjoin.c		\
 			ft_strlcat.c		\
 			ft_strlen.c			\
+			ft_wstrlen.c			\
 			ft_strmap.c			\
 			ft_strmapi.c		\
 			ft_strncat.c		\

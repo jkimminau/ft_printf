@@ -30,10 +30,10 @@ int		conv_perc(t_flags *flags)
 int		conv_ptr(va_list *ap, t_flags *flags)
 {
 	char		*res;
-	int			len;
+	int		len;
 	uintmax_t	num;
 
-	num = conv_unsigned(ap, flags);
+	num = va_arg(*ap, unsigned long);
 	res = ft_uitoa_base(num, 16);
 	res = ft_strjoin("0x", res);
 	if (flags->width > 0)
