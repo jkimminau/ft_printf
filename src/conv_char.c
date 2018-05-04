@@ -6,7 +6,7 @@
 /*   By: jkimmina <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/30 19:28:22 by jkimmina          #+#    #+#             */
-/*   Updated: 2018/05/04 16:12:33 by jkimmina         ###   ########.fr       */
+/*   Updated: 2018/05/04 16:15:03 by jkimmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,8 @@ int		conv_str(va_list *ap, t_flags *flags)
 	char	*tmp;
 	int		len;
 
+	if (*flags->key == 'S')
+		return (conv_wstr(ap, flags));
 	tmp = va_arg(*ap, char*);
 	if (tmp == 0)
 		ret = ft_strdup("(null)");
