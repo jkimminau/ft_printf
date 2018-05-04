@@ -6,7 +6,7 @@
 /*   By: jkimmina <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/18 16:48:25 by jkimmina          #+#    #+#             */
-/*   Updated: 2018/05/01 18:23:17 by jkimmina         ###   ########.fr       */
+/*   Updated: 2018/05/04 14:19:12 by jkimmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ t_flags	*read_flags(char **str)
 		if ((flags = add_option(flags, str)) == 0)
 			return (0);
 	i = 0;
-	while (ft_strchr("sSpdDioOuUxXcC%", *(*str + i)) == 0
+	while (ft_strchr("sSpdiDoOuUxXcC%", *(*str + i)) == 0
 			&& **str != '\0')
 		i++;
 	flags->flagstr = ft_strsub(*str, 0, i);

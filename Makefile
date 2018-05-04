@@ -6,7 +6,7 @@
 #    By: jkimmina <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/19 19:11:37 by jkimmina          #+#    #+#              #
-#    Updated: 2018/05/01 18:11:35 by jkimmina         ###   ########.fr        #
+#    Updated: 2018/05/04 14:31:35 by jkimmina         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ HDR = 		libft.h				\
 			ft_printf_struct.h	\
 			get_next_line.h	
 
-LIBFTSRC =	ft_atoi.c			\
+LIBFTSRC =	ft_addprefix.c		\
+			ft_atoi.c			\
 			ft_bzero.c			\
 			ft_isalnum.c		\
 			ft_isalpha.c		\

@@ -6,12 +6,13 @@
 /*   By: jkimmina <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/30 19:29:05 by jkimmina          #+#    #+#             */
-/*   Updated: 2018/05/01 18:13:48 by jkimmina         ###   ########.fr       */
+/*   Updated: 2018/05/04 14:32:00 by jkimmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_printf_conv.h>
 #include <ft_printf_flags.h>
+#include <stdio.h>
 
 int			conv_octal(char k, va_list *ap, t_flags *flags)
 {
@@ -93,7 +94,7 @@ int			conv_hex(char k, va_list *ap, t_flags *flags)
 	if (flags->prec > -1)
 		res = prec_flag(res, flags);
 	if (flags->alt && num > 0)
-		res = ft_strjoin("0x", res);
+		res = ft_addprefix("0x", res);
 	if (k == 'X')
 		res = ft_capitalize(res);
 	if (flags->width > 0)

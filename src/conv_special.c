@@ -6,7 +6,7 @@
 /*   By: jkimmina <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/01 16:00:35 by jkimmina          #+#    #+#             */
-/*   Updated: 2018/05/01 18:19:04 by jkimmina         ###   ########.fr       */
+/*   Updated: 2018/05/04 14:23:22 by jkimmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,19 @@ int		conv_perc(t_flags *flags)
 
 int		conv_ptr(va_list *ap, t_flags *flags)
 {
+	char		*tmp;
 	char		*res;
-	int		len;
+	int			len;
 	uintmax_t	num;
 
 	num = va_arg(*ap, unsigned long);
-	res = ft_uitoa_base(num, 16);
-	res = ft_strjoin("0x", res);
+	tmp = ft_uitoa_base(num, 16);
+	res = ft_strjoin("0x", tmp);
 	if (flags->width > 0)
 		res = num_flag(res, flags);
 	len = ft_strlen(res);
 	write(1, res, len);
+	free(tmp);
 	free(res);
 	return (len);
 }

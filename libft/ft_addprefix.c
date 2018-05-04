@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_addprefix.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkimmina <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/18 17:12:39 by jkimmina          #+#    #+#             */
-/*   Updated: 2018/05/04 14:33:02 by jkimmina         ###   ########.fr       */
+/*   Created: 2018/05/04 14:28:19 by jkimmina          #+#    #+#             */
+/*   Updated: 2018/05/04 14:29:13 by jkimmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <wchar.h>
-#include <stdlib.h>
-#include <ft_printf.h>
-#include <limits.h>
+#include <libft.h>
 
-int		main(void)
+char *ft_addprefix(char *pre, char *str)
 {
-	return (0);
+	char *tmp;
+
+	tmp = ft_strjoin(pre, str);
+	free(str);
+	return (tmp);
 }
