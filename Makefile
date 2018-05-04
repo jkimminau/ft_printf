@@ -6,7 +6,7 @@
 #    By: jkimmina <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/19 19:11:37 by jkimmina          #+#    #+#              #
-#    Updated: 2018/05/04 14:31:35 by jkimmina         ###   ########.fr        #
+#    Updated: 2018/05/04 16:00:21 by jkimmina         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,12 +47,14 @@ LIBFTSRC =	ft_addprefix.c		\
 			ft_memset.c			\
 			ft_putchar.c		\
 			ft_putchar_fd.c		\
+			ft_putwchar.c		\
 			ft_putendl.c		\
 			ft_putendl_fd.c		\
 			ft_putnbr.c			\
 			ft_putnbr_fd.c		\
 			ft_putstr.c			\
 			ft_putstr_fd.c		\
+			ft_putwstr.c			\
 			ft_strcat.c			\
 			ft_strchr.c			\
 			ft_strclr.c			\

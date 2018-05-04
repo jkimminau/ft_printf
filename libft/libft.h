@@ -6,7 +6,7 @@
 /*   By: jkimmina <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/19 19:08:48 by jkimmina          #+#    #+#             */
-/*   Updated: 2018/05/04 14:30:10 by jkimmina         ###   ########.fr       */
+/*   Updated: 2018/05/04 16:01:03 by jkimmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,9 @@ char				*ft_uitoa(uintmax_t n);
 char				*ft_uitoa_base(uintmax_t n, int base);
 char				*ft_sitoa(intmax_t n);
 void				ft_putchar(char c);
+void				ft_putwchar(wchar_t c);
 void				ft_putstr(char const *s);
+void				ft_putwstr(wchar_t const *s);
 void				ft_putendl(char const *s);
 void				ft_putnbr(int n);
 void				ft_putchar_fd(char c, int fd);
