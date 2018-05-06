@@ -6,7 +6,7 @@
 /*   By: jkimmina <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/23 14:48:27 by jkimmina          #+#    #+#             */
-/*   Updated: 2018/05/01 18:28:15 by jkimmina         ###   ########.fr       */
+/*   Updated: 2018/05/05 18:45:18 by jkimmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,41 +34,27 @@ char	*alt_flag(char *conv, t_flags *flags)
 	return (res);
 }
 
-char	*plus_flag(char *conv, t_flags *flags)
-{
-	char	*res;
-
-	if ((*(flags->key) != 'd' && *(flags->key) != 'i') || ft_strstr(conv, "-"))
-		return (conv);
-	res = ft_strjoin("+", conv);
-	free(conv);
-	return (res);
-}
-
 char	*space_flag(char *conv, t_flags *flags)
 {
-	char	*res;
-
 	if ((*(flags->key) != 'd' && *(flags->key) != 'i')
 			|| flags->plus || ft_strstr(conv, "-"))
 		return (conv);
-	res = ft_strjoin(" ", conv);
-	free(conv);
-	return (res);
+	conv = ft_addprefix(" ", conv);
+	return (conv);
 }
 
 char	*prec_flag(char *conv, t_flags *flags)
 {
 	char	*res;
-	char	*list;
 	int		i;
 	int		digits;
 
-	list = ft_strdup("diouxX");
-	if (ft_strchr(list, *flags->key))
+	if (ft_strchr("diouxX", *flags->key) == 0)
+		return (conv);
+	else
 	{
 		digits = ft_strlen(conv) - (ft_strstr(conv, "-") != 0);
-		if (flags->prec == 0 && ft_strcmp("0", conv) == 0 && !(*(flags->key) == 'o' && flags->alt))
+		if (!flags->prec && !ft_strcmp("0", conv) && !(*(flags->key) == 'o' && flags->alt))
 			res = ft_strdup("");
 		else if (digits < flags->prec)
 		{
@@ -80,13 +66,8 @@ char	*prec_flag(char *conv, t_flags *flags)
 			ft_strcpy(res + flags->prec + (ft_strstr(conv, "-") != 0) - ft_strlen(conv + i), conv + i);
 		}
 		else
-			res = ft_strdup(conv);
+			return (conv);
 	}
-	else if (*(flags->key) == 's')
-		res = ft_strsub(conv, 0, flags->prec);
-	else
-		res = ft_strdup(conv);
-	free(list);
 	free(conv);
 	return (res);
 }

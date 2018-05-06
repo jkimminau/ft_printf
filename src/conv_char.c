@@ -6,7 +6,7 @@
 /*   By: jkimmina <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/30 19:28:22 by jkimmina          #+#    #+#             */
-/*   Updated: 2018/05/04 17:30:53 by jkimmina         ###   ########.fr       */
+/*   Updated: 2018/05/05 19:18:22 by jkimmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,8 @@ int		conv_wstr(va_list *ap, t_flags *flags)
 
 	ret = va_arg(*ap, wchar_t*);
 	if (ret == 0)
-	{
-		write(1, "(null)", 6);
-		return (6);
-	}	
-	len = ft_wstrlen(ret);;
+		return (write(1, "(null)", 6));
+	len = ft_wstrlen(ret);
 	if (flags->width > len)
 	{
 		len = flags->width;
@@ -104,15 +101,13 @@ int		conv_str(va_list *ap, t_flags *flags)
 		return (conv_wstr(ap, flags));
 	tmp = va_arg(*ap, char*);
 	if (tmp == 0)
-		ret = ft_strdup("(null)");
+		return (write(1, "(null)", 6));
+	if (flags->prec > -1)
+		ret = ft_strsub(tmp, 0, flags->prec);
 	else
-	{
 		ret = ft_strdup(tmp);
-		if (flags->prec > -1)
-			ret = prec_flag(ret, flags);
-		if (flags->width)
-			ret = num_flag(ret, flags);
-	}
+	if (flags->width)
+		ret = num_flag(ret, flags);
 	len = ft_strlen(ret);
 	write(1, ret, len);
 	free(ret);

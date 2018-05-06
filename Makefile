@@ -6,7 +6,7 @@
 #    By: jkimmina <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/19 19:11:37 by jkimmina          #+#    #+#              #
-#    Updated: 2018/05/04 16:00:21 by jkimmina         ###   ########.fr        #
+#    Updated: 2018/05/05 18:54:08 by jkimmina         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,6 +82,7 @@ LIBFTSRC =	ft_addprefix.c		\
 			ft_strsplit.c		\
 			ft_strstr.c			\
 			ft_strsub.c			\
+			ft_wstrsub.c		\
 			ft_strtrim.c		\
 			ft_tolower.c		\
 			ft_toupper.c		\
@@ -113,15 +114,12 @@ OBJ =	$(SRC:.c=.o) $(LIBFTSRC:.c=.o)
 
 CFLAGS = -c -Wall -Werror -Wextra
 
-all: $(NAME) test
+all: $(NAME)
 
 $(NAME):
 	@gcc $(CFLAGS) $(HEADERFLG) $(addprefix src/, $(SRC)) $(addprefix libft/, $(LIBFTSRC))
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
-
-test:
-	gcc -Wall -Werror -Wextra $(HEADERFLG) main.c -L. -lftprintf -o test
 
 clean:
 	@/bin/rm -f $(OBJ) inc/*.gch*

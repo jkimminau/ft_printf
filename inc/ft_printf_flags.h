@@ -6,7 +6,7 @@
 /*   By: jkimmina <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/23 15:00:34 by jkimmina          #+#    #+#             */
-/*   Updated: 2018/04/30 20:13:33 by jkimmina         ###   ########.fr       */
+/*   Updated: 2018/05/05 17:45:22 by jkimmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include "ft_printf_struct.h"
 
 char	*alt_flag(char *conv, t_flags *flags);
-char	*plus_flag(char *conv, t_flags *flags);
 char	*space_flag(char *conv, t_flags *flags);
 char	*prec_flag(char *conv, t_flags *flags);
 char	*num_flag(char *conv, t_flags *flags);

@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_wstrsub.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkimmina <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/18 17:12:39 by jkimmina          #+#    #+#             */
-/*   Updated: 2018/05/04 17:32:10 by jkimmina         ###   ########.fr       */
+/*   Created: 2018/05/05 18:45:45 by jkimmina          #+#    #+#             */
+/*   Updated: 2018/05/05 18:55:18 by jkimmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <wchar.h>
-#include <stdlib.h>
-#include <ft_printf.h>
-#include <limits.h>
+#include <libft.h>
 
-int		main(void)
+wchar_t	*ft_wstrsub(wchar_t const *s, unsigned int start, size_t len)
 {
-	return (0);
+	wchar_t	*tmp;
+	size_t	i;
+
+	if (!s)
+		return (NULL);
+	tmp = (wchar_t *)malloc(sizeof(wchar_t) * (len + 1));
+	if (!tmp)
+		return (NULL);
+	i = -1;
+	while (++i < len)
+		tmp[i] = s[start + i];
+	tmp[i] = '\0';
+	return (tmp);
 }
