@@ -6,13 +6,13 @@
 /*   By: jkimmina <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/05 18:45:45 by jkimmina          #+#    #+#             */
-/*   Updated: 2018/05/05 18:55:18 by jkimmina         ###   ########.fr       */
+/*   Updated: 2018/05/07 14:06:22 by jkimmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-wchar_t	*ft_wstrsub(wchar_t const *s, unsigned int start, size_t len)
+wchar_t	*ft_wstrsub(wchar_t const *s, int start, size_t len)
 {
 	wchar_t	*tmp;
 	size_t	i;

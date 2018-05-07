@@ -6,7 +6,7 @@
 /*   By: jkimmina <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/19 19:08:48 by jkimmina          #+#    #+#             */
-/*   Updated: 2018/05/05 18:54:55 by jkimmina         ###   ########.fr       */
+/*   Updated: 2018/05/07 14:06:10 by jkimmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int					ft_strequ(char const *s1, char const *s2);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
-wchar_t				*ft_wstrsub(wchar_t const *s, unsigned int start, size_t len);
+wchar_t				*ft_wstrsub(wchar_t const *s, int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_addprefix(char *pre, char *str);
 char				*ft_strtrim(char const *s);
